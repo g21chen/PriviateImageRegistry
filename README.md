@@ -32,11 +32,17 @@ For some fields there will be a default value,
 If you enter '.', the field will be left blank.
 -----
 Country Name (2 letter code) [AU]:US
+
 State or Province Name (full name) [Some-State]:Texas
+
 Locality Name (eg, city) []:Dallas
+
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:tom
+
 Organizational Unit Name (eg, section) []:jack
+
 Common Name (e.g. server FQDN or YOUR name) []:test.test
+
 Email Address []:www.ttt@xxxx.com
 
 ### **1.3 update the certificates in server**
