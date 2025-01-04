@@ -57,6 +57,7 @@ htpasswd -Bbc ./docker_reg_auth/htpasswd xxx yyy  (xxx: username  yyy: password)
 
 
 ## **3. create the docker registry**
+Enter the directory including docker_reg_auth and docker_reg_certs, and then execute the following command:
 docker run -d -p 5000:5000 --restart=always --name registry -v $PWD/docker_reg_certs:/certs -v $PWD/docker_reg_auth:/auth -v /reg:/var/lib/registry -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd -e REGISTRY_AUTH=htpasswd registry:2
 
 
@@ -67,23 +68,6 @@ docker login -u username -p password https://xxx.yyy.zzz.ttt:5000   (xxx.yyy.zzz
 
 or access registry via adding certificate
 podman login --username labuser --password labuser --cert-dir=/var/home/core/domain.crt xxx.yyy.zzz.ttt:5000
-
-
-### **4.2 pull image from registry**
-podman pull xxx.yyy.zzz.ttt:5000/openshift/release-images:4.16.24-x86_64 --cert-dir=/var/home/core/
-	Trying to pull xxx.yyy.zzz.ttt:5000/openshift/release-images:4.16.24-x86_64...
-	Getting image source signatures
-	Copying blob d92258d72588 skipped: already exists
-	Copying blob ae0badd53767 skipped: already exists
-	Copying blob cce32ddbadbc skipped: already exists
-	Copying blob efe03ed10085 skipped: already exists
-	Copying blob bc254f73ff38 skipped: already exists
-	Copying config 708588779e done
-	Writing manifest to image destination
-	Storing signatures
-	708588779e51748d394f07f4b3dde00cfce4f520fb995b18871945bcf5610b30
-
-
 
 
 
