@@ -6,9 +6,13 @@ This repository is to specify the guide how to setup one private docker image re
 
 # **Prerequiste**
 a. linux server
+
 b. storage size 100G (the size depends on the planned image sizes stored in registry)
+
 c. docker
+
 d. openssl
+
 e. htpasswd  (installation: apt-get install apache2-util)
 
 # **Install steps**
